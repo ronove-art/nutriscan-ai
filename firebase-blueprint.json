@@ -1,0 +1,116 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and dietary goals",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "birthDate": { "type": "string", "format": "date" },
+        "gender": { "type": "string", "enum": ["male", "female", "other"] },
+        "heightCm": { "type": "number" },
+        "currentWeightKg": { "type": "number" },
+        "targetWeightKg": { "type": "number" },
+        "dietGoal": { "type": "string", "enum": ["weight_loss", "muscle_gain", "maintenance", "keto", "vegan"] },
+        "activityLevel": { "type": "string", "enum": ["sedentary", "light", "moderate", "active", "very_active"] },
+        "dailyCalorieTarget": { "type": "integer" },
+        "macroProteinPct": { "type": "integer" },
+        "macroCarbsPct": { "type": "integer" },
+        "macroFatPct": { "type": "integer" },
+        "allergens": { "type": "array", "items": { "type": "string" } },
+        "healthConditions": { "type": "array", "items": { "type": "string" } },
+        "aiPersonality": { "type": "string", "enum": ["friendly", "strict", "gentle", "scientific"] },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "fullName", "email"]
+    },
+    "Restaurant": {
+      "title": "Restaurant",
+      "description": "Restaurant information",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "description": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "address": { "type": "string" }
+      },
+      "required": ["name", "slug"]
+    },
+    "MenuItem": {
+      "title": "MenuItem",
+      "description": "Nutrition information for a menu item",
+      "type": "object",
+      "properties": {
+        "restaurantId": { "type": "string" },
+        "barcode": { "type": "string" },
+        "qrCode": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "calories": { "type": "number" },
+        "protein": { "type": "number" },
+        "carbs": { "type": "number" },
+        "fat": { "type": "number" },
+        "sugar": { "type": "number" },
+        "sodium": { "type": "number" },
+        "servingSize": { "type": "number" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["restaurantId", "name", "calories", "protein", "carbs", "fat"]
+    },
+    "MealLog": {
+      "title": "MealLog",
+      "description": "History of meals consumed",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "menuItemId": { "type": "string" },
+        "name": { "type": "string" },
+        "calories": { "type": "number" },
+        "protein": { "type": "number" },
+        "carbs": { "type": "number" },
+        "fat": { "type": "number" },
+        "quantity": { "type": "number" },
+        "mealType": { "type": "string", "enum": ["breakfast", "lunch", "dinner", "snack"] },
+        "consumedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "calories", "consumedAt"]
+    },
+    "ChatHistory": {
+      "title": "ChatHistory",
+      "description": "AI coaching session history",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "assistant"] },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "role", "content", "timestamp"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User accounts"
+    },
+    "restaurants/{restaurantId}": {
+      "schema": "Restaurant",
+      "description": "Restaurant data"
+    },
+    "menuItems/{menuItemId}": {
+      "schema": "MenuItem",
+      "description": "Menu items across all restaurants"
+    },
+    "mealLogs/{logId}": {
+      "schema": "MealLog",
+      "description": "User consumption history"
+    },
+    "chats/{chatId}": {
+      "schema": "ChatHistory",
+      "description": "AI chat history"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "NutriScan AI",
+  "description": "Smart Restaurant Nutrition Companion with AI-powered coaching and barcode scanning.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}
