@@ -1,5 +1,5 @@
-// Mock Firebase Utility for Offline-First APKs
-// Replaces real Firebase SDK logic with LocalStorage
+// Local-First Data Engine
+// This replaces Firebase entirely for offline APK stability
 
 export const onAuthStateChanged = (f: any, callback: any) => {
   const user = JSON.parse(localStorage.getItem('lumina_user') || 'null');
@@ -14,7 +14,6 @@ export const auth = {
 
 export const db: any = {};
 
-// Mock Firestore hooks/functions
 export const doc = (database: any, collection: string, id: string) => ({ type: 'doc', collection, id });
 export const collection = (database: any, name: string) => name;
 export const query = (col: any, ...constraints: any[]) => col;
@@ -90,11 +89,12 @@ export const onSnapshot = (q: any, callback: any) => {
   return () => {};
 };
 
-export const loginWithGoogle = async () => {
+// Simple local login
+export const startLocalSession = async () => {
   const mockUser = {
     uid: 'local-user',
-    displayName: 'Aplikasi Offline',
-    email: 'user@offline.app',
+    displayName: 'User',
+    email: 'local@device',
     photoURL: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Nutri'
   };
   localStorage.setItem('lumina_user', JSON.stringify(mockUser));

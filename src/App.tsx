@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, cloneElement } from 'react';
-import { auth, db, loginWithGoogle, logout, onAuthStateChanged, doc, getDoc, FirebaseUser } from './lib/firebase';
+import { auth, db, startLocalSession, logout, onAuthStateChanged, doc, getDoc, FirebaseUser } from './lib/firebase';
 import { UserProfile } from './types';
 import { cn } from './lib/utils';
 import { 
@@ -55,13 +55,13 @@ export default function App() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-slate-50">
-        <Activity className="w-12 h-12 text-emerald-500 animate-pulse" />
+        <Activity className="w-12 h-12 text-zinc-900 animate-pulse" />
       </div>
     );
   }
 
   if (!user) {
-    return <Landing onLogin={loginWithGoogle} />;
+    return <Landing onStart={startLocalSession} />;
   }
 
   if (!profile) {

@@ -1,7 +1,7 @@
 import { Activity, ShieldCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 
-export default function Landing({ onLogin }: { onLogin: () => void }) {
+export default function Landing({ onStart }: { onStart: () => void }) {
   return (
     <div className="min-h-screen bg-zinc-50 flex flex-col items-center justify-center p-8 text-center">
       <motion.div 
@@ -24,14 +24,13 @@ export default function Landing({ onLogin }: { onLogin: () => void }) {
         <motion.button
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.98 }}
-          onClick={onLogin}
+          onClick={onStart}
           className="w-full bg-zinc-900 text-white font-bold py-5 rounded-[20px] flex items-center justify-center gap-4 shadow-xl shadow-zinc-900/20"
         >
-          <img src="https://www.google.com/favicon.ico" className="w-5 h-5 grayscale invert" alt="Google" referrerPolicy="no-referrer" />
-          <span className="text-sm tracking-tight">Enter with Google</span>
+          <span className="text-sm tracking-tight capitalize">Mulai Sekarang</span>
         </motion.button>
         
-        <p className="text-[10px] text-zinc-300 font-bold uppercase tracking-[0.2em]">Secure Access Only</p>
+        <p className="text-[10px] text-zinc-300 font-bold uppercase tracking-[0.2em]">100% Offline • Private Data</p>
       </div>
 
       <div className="mt-24 flex items-center gap-6 opacity-20">
