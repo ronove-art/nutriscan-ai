@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { db } from '../lib/firebase';
-import { collection, query, where, orderBy, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { db, collection, query, where, orderBy, getDocs, deleteDoc, doc } from '../lib/firebase';
 import { UserProfile, MealLog } from '../types';
 import { format } from 'date-fns';
 import { Trash2, Utensils, Coffee, Moon, Sun } from 'lucide-react';

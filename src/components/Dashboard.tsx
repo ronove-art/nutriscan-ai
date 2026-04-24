@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { db } from '../lib/firebase';
-import { collection, query, where, getDocs, Timestamp } from 'firebase/firestore';
+import { db, collection, query, where, getDocs, Timestamp } from '../lib/firebase';
 import { UserProfile, MealLog } from '../types';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 import { Flame, Target, Utensils, Award } from 'lucide-react';

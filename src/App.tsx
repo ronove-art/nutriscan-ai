@@ -4,9 +4,7 @@
  */
 
 import { useState, useEffect, cloneElement } from 'react';
-import { auth, db, loginWithGoogle, logout } from './lib/firebase';
-import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { auth, db, loginWithGoogle, logout, onAuthStateChanged, doc, getDoc, FirebaseUser } from './lib/firebase';
 import { UserProfile } from './types';
 import { cn } from './lib/utils';
 import { 

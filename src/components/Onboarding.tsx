@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { UserProfile } from '../types';
-import { db } from '../lib/firebase';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { db, doc, setDoc, serverTimestamp, FirebaseUser } from '../lib/firebase';
 import { motion } from 'motion/react';
-import { User as FirebaseUser } from 'firebase/auth';
 
 export default function Onboarding({ user, onComplete }: { user: FirebaseUser, onComplete: (profile: UserProfile) => void }) {
   const [step, setStep] = useState(1);

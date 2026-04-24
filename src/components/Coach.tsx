@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { db } from '../lib/firebase';
-import { collection, query, where, orderBy, limit, addDoc, serverTimestamp, onSnapshot } from 'firebase/firestore';
+import { db, collection, query, where, orderBy, limit, addDoc, serverTimestamp, onSnapshot } from '../lib/firebase';
 import { UserProfile, ChatMessage } from '../types';
 import { ai } from '../lib/gemini';
 import { Send, Bot, User as UserIcon, Loader2, Sparkles } from 'lucide-react';

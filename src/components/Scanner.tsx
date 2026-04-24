@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
-import { db } from '../lib/firebase';
-import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db, collection, query, where, getDocs, addDoc, serverTimestamp } from '../lib/firebase';
 import { UserProfile, MenuItem } from '../types';
 import { getScanAdvice, identifyFoodFromImage } from '../lib/gemini';
 import { X, CheckCircle, Info, Sparkles, Camera, RefreshCcw, Upload, FileImage } from 'lucide-react';
